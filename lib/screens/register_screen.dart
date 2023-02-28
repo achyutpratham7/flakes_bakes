@@ -23,6 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+        backgroundColor: Color(0xffF5F5F5),
         resizeToAvoidBottomInset: false,
         body: ResponsiveBuilder(
           builder: (context, sizingInformation) {
@@ -198,10 +199,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   TextStyle(fontSize: 14, color: Colors.black),
                             ),
                             InkWell(
-                              onTap: () {
-                                Get.to(const GuestScreen(),
-                                    transition: Transition.leftToRight);
-                              },
+                              onTap: () {},
                               child: const Text(
                                 'Login',
                                 style: TextStyle(

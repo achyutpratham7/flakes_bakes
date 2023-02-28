@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'guest_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -20,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+        backgroundColor: Color(0xffF5F5F5),
         resizeToAvoidBottomInset: false,
         body: ResponsiveBuilder(builder: (context, sizingInformation) {
           return Stack(
@@ -85,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderSide: BorderSide(color: Color(0xff540174)),
                             ),
                             prefixIcon: Icon(
-                              Icons.password,
+                              Icons.remove_red_eye_outlined,
                               color: Color(0xff540174),
                             ),
                             hintText: 'Password',
@@ -109,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: height * 0.02,
+                        height: height * 0.04,
                       ),
                       TextButton(
                         style: TextButton.styleFrom(
@@ -148,6 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Divider(
                               thickness: 1,
                               endIndent: 30,
+                              color: Color(0xff540174),
                             ),
                           ),
                           Padding(
@@ -156,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               "Or Login With",
                               style: TextStyle(
                                   fontSize: 14,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.bold,
                                   color: Color(0xFF540174)),
                             ),
                           ),
@@ -164,6 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Divider(
                               thickness: 1,
                               indent: 30,
+                              color: Color(0xff540174),
                             ),
                           ),
                         ],
@@ -210,7 +215,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Wrap(
                         children: [
-                          const Text('Don’t have an account? '),
+                          const Text(
+                            'Don’t have an account? ',
+                            style: TextStyle(
+                              color: Color(0xff000000),
+                            ),
+                          ),
                           InkWell(
                             onTap: () {
                               Get.to(const RegisterScreen(),
@@ -219,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: const Text(
                               'Sign up Now',
                               style: TextStyle(
-                                color: Color(0xFF540174),
+                                color: Color(0xff000000),
                                 decoration: TextDecoration.underline,
                               ),
                             ),
@@ -237,7 +247,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(16)),
                             padding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 15)),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const GuestScreen(),
+                              transition: Transition.leftToRight);
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
