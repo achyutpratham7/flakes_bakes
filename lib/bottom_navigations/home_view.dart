@@ -1,4 +1,7 @@
+import 'package:flakes_bakes/list_homeview/popularcakelist.dart';
 import 'package:flutter/material.dart';
+
+import '../list_homeview/categories_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -13,58 +16,84 @@ class _HomeViewState extends State<HomeView> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: SafeArea(
-      child: Container(
-        height: 200,
-        width: width,
-        color: Colors.amber,
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _categories(),
-              ],
-            ),
-          ),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
         ),
-      ),
-    ));
-  }
-
-  _categories() {
-    return Wrap(
-      children: List.generate(10, (index) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.black),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("assets/images/cakes/birthday_cake.png"),
-                ),
-              ),
-              Column(
-                children: const [
-                  Text("ooo"),
+        body: SafeArea(
+            child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Categories",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF6A14D1)),
+                  ),
+                  InkWell(
+                      onTap: () {},
+                      child: const Text("See all",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF6A14D1))))
                 ],
-              )
-            ],
-          ),
-        );
-      }),
-    );
+              ),
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              child: Row(
+                children: [
+                  CategoriesList(),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Popular Cake",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF6A14D1)),
+                  ),
+                  InkWell(
+                      onTap: () {},
+                      child: const Text("See all",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF6A14D1))))
+                ],
+              ),
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              child: Row(
+                children: const [
+                  PopularList(),
+                ],
+              ),
+            ),
+          ],
+        )));
   }
 }
