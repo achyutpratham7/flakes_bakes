@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../widgets/custom_textformfield.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -53,114 +55,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         SizedBox(
                           height: height * 0.05,
                         ),
-                        TextFormField(
-                          controller: registername,
-                          obscureText: true,
-                          cursorColor: const Color(0xff540174),
-                          decoration: const InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              prefixIcon: Icon(
-                                Icons.person_2_outlined,
-                                color: Color(0xff540174),
-                              ),
-                              hintText: 'Username',
-                              hintStyle:
-                                  TextStyle(fontSize: 16, color: Colors.black)),
+                        CustomTextField(
+                          userPassword: registername,
+                          prefixIcons: Icons.person_2_outlined,
+                          hintText: 'Username',
                         ),
                         SizedBox(
                           height: height * 0.02,
                         ),
-                        TextFormField(
-                          controller: registeremail,
-                          obscureText: true,
-                          cursorColor: const Color(0xff540174),
-                          decoration: const InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              prefixIcon: Icon(
-                                Icons.email_outlined,
-                                color: Color(0xff540174),
-                              ),
-                              hintText: 'Email address',
-                              hintStyle:
-                                  TextStyle(fontSize: 16, color: Colors.black)),
+                        CustomTextField(
+                          userPassword: registeremail,
+                          prefixIcons: Icons.mail_outline_outlined,
+                          hintText: 'Email address',
                         ),
                         SizedBox(
                           height: height * 0.02,
                         ),
-                        TextFormField(
-                          controller: registerpassword,
-                          obscureText: true,
-                          cursorColor: const Color(0xff540174),
-                          decoration: const InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              prefixIcon: Icon(
-                                Icons.remove_red_eye_outlined,
-                                color: Color(0xff540174),
-                              ),
-                              hintText: 'Password',
-                              hintStyle:
-                                  TextStyle(fontSize: 16, color: Colors.black)),
+                        CustomTextField(
+                          userPassword: registerpassword,
+                          prefixIcons: Icons.remove_red_eye_outlined,
+                          hintText: 'Password',
                         ),
                         SizedBox(
                           height: height * 0.02,
                         ),
-                        TextFormField(
-                          controller: registerconfirmpassword,
-                          obscureText: true,
-                          cursorColor: const Color(0xff540174),
-                          decoration: const InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xff540174)),
-                              ),
-                              prefixIcon: Icon(
-                                Icons.remove_red_eye_outlined,
-                                color: Color(0xff540174),
-                              ),
-                              hintText: 'Confirm Password',
-                              hintStyle:
-                                  TextStyle(fontSize: 16, color: Colors.black)),
+                        CustomTextField(
+                          userPassword: registerconfirmpassword,
+                          prefixIcons: Icons.remove_red_eye_outlined,
+                          hintText: 'Confirm Password',
                         ),
                         SizedBox(
                           height: height * 0.05,

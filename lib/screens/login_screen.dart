@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../widgets/custom_textformfield.dart';
 import 'guest_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -49,51 +50,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: height * 0.03,
                       ),
-                      TextFormField(
-                        controller: userName,
-                        cursorColor: const Color(0xff540174),
-                        decoration: const InputDecoration(
-                            border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xff540174)),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xff540174)),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xff540174)),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.person_2_outlined,
-                              color: Color(0xff540174),
-                            ),
-                            hintText: 'Jimmy Vanderson',
-                            hintStyle:
-                                TextStyle(fontSize: 16, color: Colors.black)),
+                      CustomTextField(
+                        userPassword: userName,
+                        prefixIcons: Icons.person_2_outlined,
+                        hintText: 'Jimmy Vanderson',
                       ),
                       SizedBox(
                         height: height * 0.01,
                       ),
-                      TextFormField(
-                        controller: userPassword,
-                        obscureText: true,
-                        cursorColor: const Color(0xff540174),
-                        decoration: const InputDecoration(
-                            border: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xff540174)),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xff540174)),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xff540174)),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.remove_red_eye_outlined,
-                              color: Color(0xff540174),
-                            ),
-                            hintText: 'Password',
-                            hintStyle:
-                                TextStyle(fontSize: 16, color: Colors.black)),
+                      CustomTextField(
+                        userPassword: userPassword,
+                        prefixIcons: Icons.remove_red_eye_outlined,
+                        hintText: 'Password',
                       ),
                       SizedBox(
                         height: height * 0.01,
