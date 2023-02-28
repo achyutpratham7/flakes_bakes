@@ -1,4 +1,5 @@
 import 'package:flakes_bakes/screens/guest_screen.dart';
+import 'package:flakes_bakes/screens/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -70,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     BorderSide(color: Color(0xff540174)),
                               ),
                               prefixIcon: Icon(
-                                Icons.password,
+                                Icons.person_2_outlined,
                                 color: Color(0xff540174),
                               ),
                               hintText: 'Username',
@@ -126,7 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     BorderSide(color: Color(0xff540174)),
                               ),
                               prefixIcon: Icon(
-                                Icons.remove_red_eye,
+                                Icons.remove_red_eye_outlined,
                                 color: Color(0xff540174),
                               ),
                               hintText: 'Password',
@@ -154,7 +155,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     BorderSide(color: Color(0xff540174)),
                               ),
                               prefixIcon: Icon(
-                                Icons.remove_red_eye,
+                                Icons.remove_red_eye_outlined,
                                 color: Color(0xff540174),
                               ),
                               hintText: 'Confirm Password',
@@ -199,7 +200,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   TextStyle(fontSize: 14, color: Colors.black),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Get.to(const LoginScreen(),
+                                    transition: Transition.leftToRight);
+                              },
                               child: const Text(
                                 'Login',
                                 style: TextStyle(
