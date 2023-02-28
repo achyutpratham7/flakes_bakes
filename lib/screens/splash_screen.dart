@@ -4,21 +4,21 @@ import 'package:flakes_bakes/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class splash_screen extends StatefulWidget {
-  splash_screen({super.key});
+class SplashScreen extends StatefulWidget {
+  SplashScreen({super.key});
 
   @override
-  State<splash_screen> createState() => _splash_screenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _splash_screenState extends State<splash_screen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
     Timer(
         Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => login_screen())));
+            context, MaterialPageRoute(builder: (context) => LoginScreen())));
   }
 
   @override

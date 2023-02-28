@@ -1,14 +1,19 @@
+import 'package:flakes_bakes/screens/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class login_screen extends StatefulWidget {
-  const login_screen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<login_screen> createState() => _login_screenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _login_screenState extends State<login_screen> {
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController userName = TextEditingController();
+  TextEditingController userPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -42,6 +47,7 @@ class _login_screenState extends State<login_screen> {
                         height: height * 0.03,
                       ),
                       TextFormField(
+                        controller: userName,
                         cursorColor: const Color(0xff540174),
                         decoration: const InputDecoration(
                             border: UnderlineInputBorder(
@@ -65,6 +71,7 @@ class _login_screenState extends State<login_screen> {
                         height: height * 0.01,
                       ),
                       TextFormField(
+                        controller: userPassword,
                         obscureText: true,
                         cursorColor: const Color(0xff540174),
                         decoration: const InputDecoration(
@@ -205,7 +212,10 @@ class _login_screenState extends State<login_screen> {
                         children: [
                           const Text('Don’t have an account? '),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Get.to(const RegisterScreen(),
+                                  transition: Transition.cupertino);
+                            },
                             child: const Text(
                               'Sign up Now',
                               style: TextStyle(
