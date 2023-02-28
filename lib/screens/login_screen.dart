@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Center(
                         child: Image.asset(
                           "assets/images/logo_long.png",
-                          width: width * 0.6,
+                          width: width * 0.5,
                           fit: BoxFit.scaleDown,
                         ),
                       ),
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderSide: BorderSide(color: Color(0xff540174)),
                             ),
                             prefixIcon: Icon(
-                              Icons.person,
+                              Icons.person_2_outlined,
                               color: Color(0xff540174),
                             ),
                             hintText: 'Jimmy Vanderson',

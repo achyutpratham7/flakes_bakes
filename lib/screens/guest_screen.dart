@@ -107,7 +107,7 @@ class _GuestScreenState extends State<GuestScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: height * 0.05,
+                  height: height * 0.03,
                 ),
                 TextButton(
                   style: TextButton.styleFrom(
@@ -132,7 +132,7 @@ class _GuestScreenState extends State<GuestScreen> {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           );
