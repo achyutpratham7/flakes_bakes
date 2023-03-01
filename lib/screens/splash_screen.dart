@@ -15,7 +15,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   Future<dynamic> getData() {
     return Future.delayed(
-        const Duration(seconds: 2), () => Get.to(LoginScreen()));
+        Duration(seconds: 2),
+        () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            ));
   }
 
   @override

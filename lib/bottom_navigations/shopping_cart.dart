@@ -8,7 +8,6 @@ class ShoppingCart extends StatefulWidget {
 }
 
 class _ShoppingCartState extends State<ShoppingCart> {
-  String dropdownValue = 'example';
   Map dropdownSelected = {};
   List dropdowndata = [
     {"id": 1, "name": "Abc", "age": 20, "email": "abc@gmail.com"},

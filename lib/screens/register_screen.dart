@@ -123,8 +123,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             InkWell(
                               onTap: () {
-                                Get.to(const LoginScreen(),
-                                    transition: Transition.leftToRight);
+                                Get.to(() => LoginScreen(),
+                                    transition: Transition.cupertino);
                               },
                               child: const Text(
                                 'Login',

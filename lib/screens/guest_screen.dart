@@ -117,8 +117,8 @@ class _GuestScreenState extends State<GuestScreen> {
                         borderRadius: BorderRadius.circular(16)),
                   ),
                   onPressed: () {
-                    Get.to(const GuestOtpScreen(),
-                        transition: Transition.rightToLeft);
+                    Get.to(() => GuestOtpScreen(),
+                        transition: Transition.cupertino);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -1,3 +1,4 @@
+import 'package:flakes_bakes/bottom_navigations/home_view.dart';
 import 'package:flakes_bakes/screens/home_page.dart';
 import 'package:flakes_bakes/screens/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -138,8 +139,7 @@ class _GuestOtpScreenState extends State<GuestOtpScreen> {
                       padding: const EdgeInsets.symmetric(
                           vertical: 18, horizontal: 15)),
                   onPressed: () {
-                    Get.to(const HomePage(),
-                        transition: Transition.rightToLeft);
+                    Get.to(() => HomePage(), transition: Transition.cupertino);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

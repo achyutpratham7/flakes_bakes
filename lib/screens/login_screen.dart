@@ -191,7 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              Get.to(const RegisterScreen(),
+                              Get.to(() => RegisterScreen(),
                                   transition: Transition.cupertino);
                             },
                             child: const Text(
@@ -216,8 +216,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 15)),
                         onPressed: () {
-                          Get.to(const GuestScreen(),
-                              transition: Transition.leftToRight);
+                          Get.to(() => GuestScreen(),
+                              transition: Transition.cupertino);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
