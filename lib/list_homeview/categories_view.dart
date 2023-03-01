@@ -33,10 +33,10 @@ class CategoriesList extends StatelessWidget {
                               "assets/images/cakes/birthday_cake.png"),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      Text(
+                      const Text(
                         "Birthday Cake",
                         overflow: TextOverflow.ellipsis,
                       )
