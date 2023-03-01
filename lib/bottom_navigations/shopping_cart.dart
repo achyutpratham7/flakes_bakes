@@ -9,7 +9,7 @@ class ShoppingCart extends StatefulWidget {
 
 class _ShoppingCartState extends State<ShoppingCart> {
   String dropdownValue = 'example';
-
+  Map dropdownSelected = {};
   List dropdowndata = [
     {"id": 1, "name": "Abc", "age": 20, "email": "abc@gmail.com"},
     {"id": 2, "name": "def", "age": 42, "email": "def@gmail.com"},
@@ -22,21 +22,27 @@ class _ShoppingCartState extends State<ShoppingCart> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             DropdownButton(
-                items: dropdowndata.map((dynamic items) {
-                  return DropdownMenuItem(
-                    value: items,
-                    child: Text(dropdowndata.),
-                  );
-                }).toList(),
-                onChanged: (dynamic newvalue) {
-                  setState(() {
-                    dropdownValue = newvalue;
-                  });
-                })
+              hint: const Text("Select"),
+              value: dropdownSelected.isNotEmpty ? dropdownSelected : null,
+              items: dropdowndata.map((dynamic items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items['name'].toString()),
+                );
+              }).toList(),
+              onChanged: (dynamic newvalue) {
+                setState(
+                  () {
+                    dropdownSelected = newvalue;
+                    debugPrint(dropdownSelected.toString());
+                  },
+                );
+              },
+            ),
           ],
         ),
       ),
