@@ -8,8 +8,7 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-  Map dropdownSelected = {};
-  List dropdowndata = [
+  List listdata = [
     {"name": "Abc", "email": "abc@gmail.com", "orderStatus": 1},
     {"name": "def", "email": "def@gmail.com", "orderStatus": 2},
     {"name": "ghi", "email": "ghi@gmail.com", "orderStatus": 3},
