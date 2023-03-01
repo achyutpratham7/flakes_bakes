@@ -7,7 +7,10 @@ class ProfileView extends StatefulWidget {
   State<ProfileView> createState() => _ProfileViewState();
 }
 
-class _ProfileViewState extends State<ProfileView> {
+class _ProfileViewState extends State<ProfileView>
+    with SingleTickerProviderStateMixin {
+  TabController? _tabController;
+
   List listdata = [
     {"name": "Abc", "email": "abc@gmail.com", "orderStatus": 1},
     {"name": "def", "email": "def@gmail.com", "orderStatus": 2},
@@ -22,30 +25,74 @@ class _ProfileViewState extends State<ProfileView> {
     {"id": 3, "type": "COMPLETED"},
     {"id": 4, "type": "ALL"}
   ];
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 4, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController!.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
+    return SafeArea(
       child: Scaffold(
           body: Column(
         children: [
-          Row(
-            children: [
-              Container(
-                height: 50,
-                width: 50,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.black)),
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  25.0,
+                ),
               ),
-            ],
+              child: TabBar(
+                physics: const BouncingScrollPhysics(),
+                isScrollable: true,
+                controller: _tabController,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    10.0,
+                  ),
+                  color: Colors.red,
+                ),
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.black,
+                tabs: const [
+                  Tab(
+                    text: 'PENDING',
+                  ),
+                  Tab(
+                    text: 'SHIPPED',
+                  ),
+                  Tab(
+                    text: 'COMPLETED',
+                  ),
+                  Tab(
+                    text: 'ALL',
+                  ),
+                ],
+              ),
+            ),
           ),
           Expanded(
             child: TabBarView(
+              controller: _tabController,
               children: [
-                ListView(
+                Column(
                   children: const [
                     ListTile(
-                      title: Text("abc"),
+                      title: Text("Abc"),
                       subtitle: Text("abc@gmail.com"),
                       leading: CircleAvatar(
                         child: Text("1"),
@@ -53,10 +100,10 @@ class _ProfileViewState extends State<ProfileView> {
                     )
                   ],
                 ),
-                ListView(
+                Column(
                   children: const [
                     ListTile(
-                      title: Text("abc"),
+                      title: Text("Abc"),
                       subtitle: Text("abc@gmail.com"),
                       leading: CircleAvatar(
                         child: Text("1"),
@@ -64,10 +111,10 @@ class _ProfileViewState extends State<ProfileView> {
                     )
                   ],
                 ),
-                ListView(
+                Column(
                   children: const [
                     ListTile(
-                      title: Text("abc"),
+                      title: Text("Abc"),
                       subtitle: Text("abc@gmail.com"),
                       leading: CircleAvatar(
                         child: Text("1"),
@@ -75,10 +122,10 @@ class _ProfileViewState extends State<ProfileView> {
                     )
                   ],
                 ),
-                ListView(
+                Column(
                   children: const [
                     ListTile(
-                      title: Text("abc"),
+                      title: Text("Abc"),
                       subtitle: Text("abc@gmail.com"),
                       leading: CircleAvatar(
                         child: Text("1"),

@@ -13,13 +13,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Future? _value;
   Future<dynamic> getData() {
     return Future.delayed(
-        Duration(seconds: 2),
-        () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const LoginScreen()),
-            ));
+        const Duration(seconds: 2), () => Get.to(LoginScreen()));
+  }
+
+  @override
+  initState() {
+    super.initState();
+    _value = getData();
   }
 
   @override
@@ -30,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
         backgroundColor: const Color(0xFFF0E8FA),
         body: ResponsiveBuilder(builder: (context, sizingInformation) {
           return FutureBuilder(
-              future: getData(),
+              future: _value,
               builder: (context, snapshot) {
                 // Checking if future is resolved or not
                 if (snapshot.connectionState == ConnectionState.done) {
@@ -57,17 +60,15 @@ class _SplashScreenState extends State<SplashScreen> {
                 }
 
                 // Displaying LoadingSpinner to indicate waiting state
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/app_logo.png",
-                        fit: BoxFit.scaleDown,
-                      ),
-                    ],
-                  ),
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/app_logo.png",
+                      fit: BoxFit.scaleDown,
+                    ),
+                  ],
                 );
               });
         }));
