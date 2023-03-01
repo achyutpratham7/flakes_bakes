@@ -40,8 +40,8 @@ class PopularList extends StatelessWidget {
                         SizedBox(
                           height: height * 0.01,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(4.0),
+                        const Padding(
+                          padding: EdgeInsets.all(4.0),
                           child: Text(
                             "Birthday Cake",
                             overflow: TextOverflow.ellipsis,
