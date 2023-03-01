@@ -13,32 +13,50 @@ class _WishListState extends State<WishList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "Flakes Bakes",
-          style: TextStyle(fontSize: 30),
-        ),
-        actions: [
-          Transform.translate(
-            offset: const Offset(-10, 0),
-            child: const Icon(
-              Icons.search,
-              size: 30,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+                height: 60,
+                color: Colors.purple,
+                child: ListTile(
+                  leading: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        Icons.home_filled,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                  title: const Center(
+                      child: Text(
+                    "homepage",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
+                  )),
+                  trailing: const Icon(
+                    Icons.settings,
+                    color: Colors.white,
+                  ),
+                )),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 20,
+                itemBuilder: (BuildContext context, int index) {
+                  return const CustomListTile(
+                    title: 'ss',
+                    leading: Icons.person_2,
+                    subtitle: 'aa',
+                    trailing: Icons.delete,
+                  );
+                },
+              ),
             ),
-          )
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (BuildContext context, int index) {
-          return const CustomListTile(
-            title: 'ss',
-            leading: Icons.abc,
-            subtitle: 'aa',
-            trailing: Icons.delete,
-          );
-        },
+          ],
+        ),
       ),
     );
   }

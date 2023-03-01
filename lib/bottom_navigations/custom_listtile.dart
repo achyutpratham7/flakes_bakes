@@ -24,18 +24,19 @@ class _CustomListTileState extends State<CustomListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(widget.leading),
+      leading: Icon(
+        widget.leading,
+        size: 30,
+      ),
       title: Text(widget.title.toString()),
       subtitle: Text(widget.subtitle.toString()),
       trailing: widget.trailing != null
           ? IconButton(
               icon: Icon(
-                // Based on passwordVisible state choose the icon
                 _ontap ? Icons.delete : Icons.delete_forever,
                 color: Theme.of(context).primaryColorDark,
               ),
               onPressed: () {
-                // Update the state i.e. toogle the state of passwordVisible variable
                 setState(() {
                   _ontap = !_ontap;
                 });
