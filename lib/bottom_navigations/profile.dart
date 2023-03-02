@@ -10,25 +10,33 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
+  Map selectedTab = {};
 
   List listdata = [
     {"name": "Abc", "email": "abc@gmail.com", "orderStatus": 1},
     {"name": "def", "email": "def@gmail.com", "orderStatus": 2},
     {"name": "ghi", "email": "ghi@gmail.com", "orderStatus": 3},
     {"name": "jkl", "email": "jkl@gmail.com", "orderStatus": 1},
-    {"name": "mno", "email": "mno@gmail.com", "orderStatus": 3}
+    {"name": "mno", "email": "mno@gmail.com", "orderStatus": 4}
   ];
 
   List tabdata = [
-    {"id": 1, "type": "PENDING"},
-    {"id": 2, "type": "SHIPPED"},
-    {"id": 3, "type": "COMPLETED"},
-    {"id": 4, "type": "ALL"}
+    {"id": 1, "type": "ALL"},
+    {"id": 2, "type": "PENDING"},
+    {"id": 3, "type": "SHIPPED"},
+    {"id": 4, "type": "COMPLETED"},
   ];
+
+  List findMatch(int id) {
+    var found = listdata.where((element) => element['orderStatus'] == id);
+    return found.toList();
+  }
 
   @override
   void initState() {
-    var tabdata;
+    /// SHOW ALL ON DEFAULT
+    selectedTab.addAll(tabdata[0]);
+
     _tabController = TabController(length: 4, vsync: this);
     super.initState();
   }
@@ -61,6 +69,11 @@ class _ProfileViewState extends State<ProfileView>
                 physics: const BouncingScrollPhysics(),
                 isScrollable: true,
                 controller: _tabController,
+                onTap: (v) {
+                  /// COLLECT SELECTED TAB DATA
+                  selectedTab.addAll(tabdata[v]);
+                  setState(() {});
+                },
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     10.0,
@@ -70,9 +83,11 @@ class _ProfileViewState extends State<ProfileView>
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
                 tabs: tabdata
-                    .map((Type) => Tab(
-                          text: Type.toString(),
-                        ))
+                    .map(
+                      (element) => Tab(
+                        text: element['type'].toString(),
+                      ),
+                    )
                     .toList(),
               ),
             ),
@@ -80,52 +95,21 @@ class _ProfileViewState extends State<ProfileView>
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              children: [
-                Column(
-                  children: const [
-                    ListTile(
-                      title: Text("Abc"),
-                      subtitle: Text("abc@gmail.com"),
-                      leading: CircleAvatar(
-                        child: Text("1"),
-                      ),
+              children: tabdata
+                  .map(
+                    (e) => Column(
+                      children: findMatch(selectedTab['id'])
+                          .map((e) => ListTile(
+                                title: Text(e['name'].toString()),
+                                subtitle: Text(e['email'].toString()),
+                                leading: CircleAvatar(
+                                  child: Text(e['orderStatus'].toString()),
+                                ),
+                              ))
+                          .toList(),
                     ),
-                  ],
-                ),
-                Column(
-                  children: const [
-                    ListTile(
-                      title: Text("Abc"),
-                      subtitle: Text("abc@gmail.com"),
-                      leading: CircleAvatar(
-                        child: Text("1"),
-                      ),
-                    )
-                  ],
-                ),
-                Column(
-                  children: const [
-                    ListTile(
-                      title: Text("Abc"),
-                      subtitle: Text("abc@gmail.com"),
-                      leading: CircleAvatar(
-                        child: Text("1"),
-                      ),
-                    )
-                  ],
-                ),
-                Column(
-                  children: const [
-                    ListTile(
-                      title: Text("Abc"),
-                      subtitle: Text("abc@gmail.com"),
-                      leading: CircleAvatar(
-                        child: Text("1"),
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                  )
+                  .toList(),
             ),
           ),
         ],
