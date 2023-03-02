@@ -82,8 +82,8 @@ class _ProfileViewState extends State<ProfileView>
               controller: _tabController,
               children: [
                 Column(
-                  children: [
-                    const ListTile(
+                  children: const [
+                    ListTile(
                       title: Text("Abc"),
                       subtitle: Text("abc@gmail.com"),
                       leading: CircleAvatar(
