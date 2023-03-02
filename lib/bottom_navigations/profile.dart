@@ -28,6 +28,7 @@ class _ProfileViewState extends State<ProfileView>
 
   @override
   void initState() {
+    var tabdata;
     _tabController = TabController(length: 4, vsync: this);
     super.initState();
   }
@@ -68,20 +69,11 @@ class _ProfileViewState extends State<ProfileView>
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
-                tabs: const [
-                  Tab(
-                    text: 'PENDING',
-                  ),
-                  Tab(
-                    text: 'SHIPPED',
-                  ),
-                  Tab(
-                    text: 'COMPLETED',
-                  ),
-                  Tab(
-                    text: 'ALL',
-                  ),
-                ],
+                tabs: tabdata
+                    .map((Type) => Tab(
+                          text: Type.toString(),
+                        ))
+                    .toList(),
               ),
             ),
           ),
@@ -90,14 +82,14 @@ class _ProfileViewState extends State<ProfileView>
               controller: _tabController,
               children: [
                 Column(
-                  children: const [
-                    ListTile(
+                  children: [
+                    const ListTile(
                       title: Text("Abc"),
                       subtitle: Text("abc@gmail.com"),
                       leading: CircleAvatar(
                         child: Text("1"),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 Column(
